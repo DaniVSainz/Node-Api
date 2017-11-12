@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
-const express = require('express');
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodbL//localhost27017/TodoApp');
+mongoose.connect('mongodb://localhost:27017/TodoApp');
 
-var Todo = mongose.model('Todo', {
+var Todo = mongoose.model('Todo', {
     text:  {
         type: String
     },
