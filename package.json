@@ -1,5 +1,5 @@
 {
-  "name": "ls",
+  "name": "node-todo-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "mongodb": "^2.2.5"
   }
 }
