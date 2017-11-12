@@ -16,5 +16,16 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err,db) => {
         console.log(JSON.stringify(result.ops, undefined,2));
     });
 
+    db.collection('Users').insertOne({
+        name: 'Daniel',
+        age: 25,
+        location: 'Miami Fl'
+    }, (err,result) => {
+        if (err) {
+            return console.log('Unable to inster user', err);
+        }
+        console.log(JSON.stringify(result.ops, undefined,2));
+    });
+
     db.close();
 });
