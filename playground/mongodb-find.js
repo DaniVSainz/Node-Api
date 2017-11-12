@@ -14,11 +14,14 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err,db) => {
     }
     console.log('Connected to mongoDb server');
 
-    db.collection('Todos').find({
-        _id: new ObjectID("5a08793fba71c950abd1e455") 
-            }).toArray().then((docs) => {
-        console.log('Todos');
-        console.log(JSON.stringify(docs, undefined,2));
+    db.collection('Todos').find().count().then((count) => {
+        console.log(`Todo's count is: ${count}`);
+    }, (err) => {
+        conosle.log('Unable to fetch documents', err);
+    });
+
+    db.collection('Users').find({name: 'Daniel'}).toArray().then((docs) => {
+        console.log(`Here are your users with that name`, JSON.stringify(docs,undefined,2));
     }, (err) => {
         conosle.log('Unable to fetch documents', err);
     });
