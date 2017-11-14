@@ -6,7 +6,9 @@ mongoose.connect('mongodb://localhost:27017/TodoApp');
 
 var Todo = mongoose.model('Todo', {
     text:  {
-        type: String
+        type: String,
+        required: true,
+        minlength:1
     },
     completed: {
         completed: Boolean
@@ -16,12 +18,24 @@ var Todo = mongoose.model('Todo', {
     }
 });
 
-var newTodo = new Todo({
-    text: 'Cook dinner'
+// var newTodo = new Todo({
+//     text: 'Cook dinner'
+// });
+
+// newTodo.save().then((doc) => {
+//     console.log('Saved todo:',doc);
+// }, (e)  =>{
+//     console.log(e);
+// });
+
+var otherTodo = new Todo({
+    text: 'Feed the cat',
+    completed: true,
+    completedAt: 123
 });
 
-newTodo.save().then((doc) => {
-    console.log('Saved todo:',doc);
-}, (e)  =>{
+otherTodo.save().then((res)=>{
+    console.log(res)
+}, (e)=>{
     console.log(e);
 });
