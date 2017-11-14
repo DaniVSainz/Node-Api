@@ -16,4 +16,4 @@ var User = mongoose.model('User', {
     }
 })
 
-module.epxorts = {User}
+module.exports = {User}
