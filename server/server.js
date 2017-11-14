@@ -21,6 +21,21 @@ var Todo = mongoose.model('Todo', {
     }
 });
 
+var User = mongoose.model('User', {
+    email: {
+        type: String,
+        required: true,
+        minlength: 1,
+        trim: true
+    },
+    password: {
+        type: String,
+        required:true,
+        minlength: 4,
+        trim: true
+    }
+})
+
 // var newTodo = new Todo({
 //     text: 'Cook dinner'
 // });
@@ -31,12 +46,23 @@ var Todo = mongoose.model('Todo', {
 //     console.log(e);
 // });
 
-var otherTodo = new Todo({
-    text: 'Feed the gf ',
+// var otherTodo = new Todo({
+//     text: 'Feed the gf ',
+// });
+
+// otherTodo.save().then((res)=>{
+//     console.log(res)
+// }, (e)=>{
+//     console.log(e);
+// });
+
+var newUser = new User({
+    email: 'danivsainz@gmail.com  ',
+    password: '123abc '
 });
 
-otherTodo.save().then((res)=>{
-    console.log(res)
-}, (e)=>{
-    console.log(e);
+newUser.save().then((user) => {
+    console.log('User saved',user);
+}, (e) => {
+    console.log('Oops you got a error',e);
 });
