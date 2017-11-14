@@ -8,13 +8,16 @@ var Todo = mongoose.model('Todo', {
     text:  {
         type: String,
         required: true,
-        minlength:1
+        minlength:1,
+        trim: true
     },
     completed: {
-        completed: Boolean
+        type: Boolean,
+        default: false
     },
     completedAt: {
-        type: Number
+        type: Number,
+        default: null
     }
 });
 
@@ -29,9 +32,7 @@ var Todo = mongoose.model('Todo', {
 // });
 
 var otherTodo = new Todo({
-    text: 'Feed the cat',
-    completed: true,
-    completedAt: 123
+    text: 'Feed the gf ',
 });
 
 otherTodo.save().then((res)=>{
