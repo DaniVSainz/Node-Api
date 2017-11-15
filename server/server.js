@@ -96,6 +96,10 @@ app.patch('/todos/:id', (req, res) => {
   })
 });
 
+
+// ~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~//
+// ~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~~~~~~USERS~~~~//
+
 app.listen(port, () => {
   console.log(`Started up at port ${port}`);
 });

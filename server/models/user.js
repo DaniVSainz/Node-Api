@@ -7,6 +7,7 @@ var User = mongoose.model('User', {
     type: String,
     required: true,
     trim: true,
+    unique:true,
     minlength: 1,
     validate: {
       validator: (value) =>{
