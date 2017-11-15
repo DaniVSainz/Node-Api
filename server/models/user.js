@@ -7,30 +7,28 @@ var User = mongoose.model('User', {
     type: String,
     required: true,
     trim: true,
-    unique:true,
     minlength: 1,
+    unique: true,
     validate: {
-      validator: (value) =>{
-        return validator.isEmail(value)
-      },
-      message: `${VALUE} : is not a valid email`
-    },
-    password: {
+      validator: validator.isEmail,
+      message: '{VALUE} is not a valid email'
+    }
+  },
+  password: {
+    type: String,
+    require: true,
+    minlength: 6
+  },
+  tokens: [{
+    access: {
       type: String,
-      require: true,
-      minlength: 6
+      required: true
     },
-    tokens: [{
-      access: {
-        type: String,
-        require:true
-      },
-      token:{
-        type: String,
-        require: true
-      }
-    }]
-  }
+    token: {
+      type: String,
+      required: true
+    }
+  }]
 });
 
 module.exports = {User}
